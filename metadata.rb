@@ -1,0 +1,6 @@
+name             'nginx'
+maintainer       'Nicolas Rodriguez'
+maintainer_email 'nicoladmin@free.fr'
+license          'MIT'
+description      'Installs/Configures Nginx'
+version          '1.0.0'

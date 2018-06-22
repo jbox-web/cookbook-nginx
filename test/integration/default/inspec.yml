@@ -1,0 +1,10 @@
+name: nginx
+title: Nginx Profile
+maintainer: Nicolas Rodriguez
+copyright: Nicolas Rodriguez
+copyright_email: nicoladmin@free.fr
+license: MIT
+summary: Nginx Compliance Profile
+version: 1.0.0
+supports:
+- os-family: linux

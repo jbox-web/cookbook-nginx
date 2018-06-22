@@ -1,0 +1,21 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  privileged: true
+  run_command: /lib/systemd/systemd
+
+provisioner:
+  name: chef_solo
+
+verifier:
+  name: inspec
+  reporter: progress
+
+platforms:
+  - name: debian-stretch
+
+suites:
+  - name: default
+    run_list:
+      - recipe[nginx]
