@@ -12,13 +12,8 @@ describe file('/etc/nginx/nginx.conf') do
   it { should exist }
 end
 
-output = """
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-"""
-
 describe command('nginx -t -c /etc/nginx/nginx.conf') do
-  its('stderr') { should eq output.lstrip }
+  its('stderr') { should include "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok" }
 end
 
 # Test Nginx service
