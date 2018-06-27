@@ -1,14 +1,16 @@
-# Install Debian Backports repository
-apt_repository 'stretch-backports-binary' do
-  uri          'http://ftp.fr.debian.org/debian'
-  components   ['main', 'contrib', 'non-free']
-  distribution 'stretch-backports'
+# Install GPG
+package 'dirmngr'
+
+# Install Nginx repository
+apt_repository 'stretch-nginx-binary' do
+  uri          'http://nginx.org/packages/mainline/debian'
+  key          'http://nginx.org/keys/nginx_signing.key'
+  components   ['nginx']
+  distribution 'stretch'
 end
 
 # Install Nginx
-package 'nginx' do
-  default_release 'stretch-backports'
-end
+package 'nginx'
 
 # Install Nginx configuration
 template '/etc/nginx/nginx.conf' do
