@@ -18,6 +18,16 @@ template '/etc/nginx/nginx.conf' do
   variables config: node[:nginx][:server][:config]
 end
 
+cookbook_file '/etc/nginx/proxy_params' do
+  source 'proxy_params'
+end
+
+# Update Nginx init script to handle *rotate* argument (for logrotate)
+cookbook_file '/etc/init.d/nginx' do
+  source 'init'
+  mode   '0755'
+end
+
 # Configure logrotate
 cookbook_file '/etc/logrotate.d/nginx' do
   source 'logrotate/nginx'
