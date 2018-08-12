@@ -1,0 +1,19 @@
+/var/log/nginx/*.log {
+  daily
+  rotate 30
+  compress
+  dateext
+  missingok
+  notifempty
+  create 0640 www-data adm
+  olddir /var/log/OLD_LOGS/nginx
+  sharedscripts
+  prerotate
+    if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+      run-parts /etc/logrotate.d/httpd-prerotate; \
+    fi \
+  endscript
+  postrotate
+    invoke-rc.d nginx rotate >/dev/null 2>&1
+  endscript
+}
