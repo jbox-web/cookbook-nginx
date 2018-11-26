@@ -13,6 +13,10 @@
     <%- sub_value.each do |v| -%>
   <%= sub_key %> <%= v %>;
     <%- end -%>
+  <%- elsif sub_value.is_a?(Hash) -%>
+    <%- sub_value.each do |k, v| -%>
+  <%= sub_key %> <%= k %> <%= v %>;
+    <%- end -%>
   <%- else -%>
   <%= sub_key %> <%= sub_value %>;
   <%- end -%>
