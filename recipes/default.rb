@@ -1,5 +1,6 @@
 DISTROS = {
-  '9' => 'stretch',
+  '9'  => 'stretch',
+  '10' => 'buster',
 }
 
 # Get distribution name

@@ -1,12 +1,11 @@
 language: ruby
 sudo: required
 cache: bundler
-rvm:
-  - 2.5.3
 services:
   - docker
+env:
+  matrix:
+    - INSTANCE: default-debian-stretch
+    - INSTANCE: default-debian-buster
 script:
-  - bundle exec kitchen test
-before_install:
-  - gem update --system
-  - gem install bundler --no-document
+  - bin/kitchen verify ${INSTANCE}
