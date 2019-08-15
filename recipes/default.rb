@@ -1,12 +1,19 @@
+DISTROS = {
+  '9' => 'stretch',
+}
+
+# Get distribution name
+distro = DISTROS[node[:platform_version]]
+
 # Install GPG
 package 'dirmngr'
 
 # Install Nginx repository
-apt_repository 'stretch-nginx-binary' do
+apt_repository 'nginx-binary' do
   uri          'http://nginx.org/packages/mainline/debian'
   key          'http://nginx.org/keys/nginx_signing.key'
   components   ['nginx']
-  distribution 'stretch'
+  distribution distro
 end
 
 # Install Nginx

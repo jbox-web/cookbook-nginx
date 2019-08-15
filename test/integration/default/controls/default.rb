@@ -2,9 +2,20 @@
 
 title 'Test Nginx installation'
 
+DISTROS = {
+  '9.9' => 'stretch',
+}
+
 # Test Nginx package
 describe package('nginx') do
   it { should be_installed }
+end
+
+distro = DISTROS[os[:release]]
+
+describe file('/etc/apt/sources.list.d/nginx-binary.list') do
+  it { should exist }
+  its('content') { should include %Q(deb      "http://nginx.org/packages/mainline/debian" #{distro} nginx)  }
 end
 
 # Test Nginx config
