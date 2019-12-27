@@ -16,7 +16,7 @@ distro = DISTROS[os[:release].to_s.split('.').first]
 
 describe file('/etc/apt/sources.list.d/nginx-binary.list') do
   it { should exist }
-  its('content') { should include %Q(deb      "http://nginx.org/packages/mainline/debian" #{distro} nginx)  }
+  its('content') { should include %Q(deb      http://nginx.org/packages/mainline/debian #{distro} nginx)  }
 end
 
 # Test Nginx config
