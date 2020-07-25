@@ -4,6 +4,10 @@ driver:
   use_sudo: false
   privileged: true
   run_command: /lib/systemd/systemd
+  provision_command:
+    - apt-get update -qq
+    - apt-get upgrade -y
+    - apt-get install -y net-tools
 
 provisioner:
   name: chef_solo
@@ -16,7 +20,13 @@ verifier:
 
 platforms:
   - name: debian-stretch
+    driver_config:
+      image: debian:stretch-slim
+      platform: debian
   - name: debian-buster
+    driver_config:
+      image: debian:buster-slim
+      platform: debian
 
 suites:
   - name: default
