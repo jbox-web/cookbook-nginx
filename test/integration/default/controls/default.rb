@@ -7,12 +7,19 @@ DISTROS = {
   '10' => 'buster',
 }
 
+distro = DISTROS[os[:release].to_s.split('.').first]
+
 # Test Nginx package
 describe package('nginx') do
   it { should be_installed }
-end
 
-distro = DISTROS[os[:release].to_s.split('.').first]
+  case distro
+  when 'stretch'
+    its('version') { should eq '1.19.1-1~stretch' }
+  when 'buster'
+    its('version') { should eq '1.19.1-1~buster' }
+  end
+end
 
 describe file('/etc/apt/sources.list.d/nginx-binary.list') do
   it { should exist }
