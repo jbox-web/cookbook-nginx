@@ -9,7 +9,7 @@ services:
   - docker
 
 env:
-  matrix:
+  jobs:
     - INSTANCE: default-debian-stretch
     - INSTANCE: default-debian-buster
 
