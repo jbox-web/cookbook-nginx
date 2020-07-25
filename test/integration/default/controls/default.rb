@@ -36,7 +36,7 @@ describe service('nginx') do
 end
 
 describe port(80) do
-  its('processes') { should include 'nginx' }
+  its('processes') { should include 'nginx:' }
   its('protocols') { should include 'tcp' }
   its('addresses') { should include '0.0.0.0' }
 end
