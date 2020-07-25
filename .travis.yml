@@ -1,11 +1,17 @@
+---
+os: linux
+dist: xenial
+
 language: ruby
-sudo: required
 cache: bundler
+
 services:
   - docker
+
 env:
   matrix:
     - INSTANCE: default-debian-stretch
     - INSTANCE: default-debian-buster
+
 script:
   - bin/kitchen verify ${INSTANCE}
