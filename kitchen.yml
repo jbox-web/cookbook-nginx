@@ -7,7 +7,7 @@ driver:
   provision_command:
     - apt-get update -qq
     - apt-get upgrade -y
-    - apt-get install -y net-tools
+    - apt-get install -y net-tools dmidecode
 
 provisioner:
   name: chef_solo
