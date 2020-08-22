@@ -15,9 +15,9 @@ describe package('nginx') do
 
   case distro
   when 'stretch'
-    its('version') { should eq '1.19.1-1~stretch' }
+    its('version') { should eq '1.19.2-1~stretch' }
   when 'buster'
-    its('version') { should eq '1.19.1-1~buster' }
+    its('version') { should eq '1.19.2-1~buster' }
   end
 end
 
