@@ -42,5 +42,5 @@ default['nginx']['server']['config']['http']['gzip_types']           = %w[
 default['nginx']['server']['config']['http']['include']              = %w[
   /etc/nginx/mime.types
   /etc/nginx/conf.d/*.conf
-  /etc/nginx/sites-enabled/*
+  /etc/nginx/sites-enabled/*.conf
 ]
