@@ -1,6 +1,6 @@
-name             'nginx'
+name             'jbox-nginx'
 maintainer       'Nicolas Rodriguez'
-maintainer_email 'nicoladmin@free.fr'
+maintainer_email 'nico@nicoladmin.fr'
 license          'MIT'
 description      'Installs/Configures Nginx'
 version          '1.0.0'

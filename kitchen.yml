@@ -31,4 +31,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[nginx]
+      - recipe[jbox-nginx]

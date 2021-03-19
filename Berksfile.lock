@@ -1,7 +1,7 @@
 DEPENDENCIES
-  nginx
+  jbox-nginx
     path: .
     metadata: true
 
 GRAPH
-  nginx (1.0.0)
+  jbox-nginx (1.0.0)
