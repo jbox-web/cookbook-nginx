@@ -23,10 +23,19 @@ platforms:
     driver_config:
       image: debian:stretch-slim
       platform: debian
+    verifier:
+      inputs:
+        debian_release: stretch
+        nginx_version: 1.19.6-1~stretch
+
   - name: debian-buster
     driver_config:
       image: debian:buster-slim
       platform: debian
+    verifier:
+      inputs:
+        debian_release: buster
+        nginx_version: 1.21.0-1~buster
 
 suites:
   - name: default

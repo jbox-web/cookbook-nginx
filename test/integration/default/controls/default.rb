@@ -2,28 +2,19 @@
 
 title 'Test Nginx installation'
 
-DISTROS = {
-  '9'  => 'stretch',
-  '10' => 'buster',
-}
-
-distro = DISTROS[os[:release].to_s.split('.').first]
+# Fetch Inspec inputs
+debian_release = input('debian_release')
+nginx_version  = input('nginx_version')
 
 # Test Nginx package
 describe package('nginx') do
   it { should be_installed }
-
-  case distro
-  when 'stretch'
-    its('version') { should eq '1.19.6-1~stretch' }
-  when 'buster'
-    its('version') { should eq '1.21.0-1~buster' }
-  end
+  its('version') { should eq nginx_version }
 end
 
 describe file('/etc/apt/sources.list.d/nginx-binary.list') do
   it { should exist }
-  its('content') { should include %Q(deb      http://nginx.org/packages/mainline/debian #{distro} nginx)  }
+  its('content') { should include %Q(deb      http://nginx.org/packages/mainline/debian #{debian_release} nginx)  }
 end
 
 # Test Nginx config
