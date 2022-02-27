@@ -30,6 +30,14 @@ cookbook_file '/etc/nginx/proxy_params' do
   source 'proxy_params'
 end
 
+if node.chef_environment == '_default'
+  directory '/etc/nginx/sites-enabled/'
+  cookbook_file '/etc/nginx/sites-enabled/server_status.conf' do
+    source 'server_status.conf'
+    notifies :restart, "service[nginx]", :immediately
+  end
+end
+
 # Update Nginx init script to handle *rotate* argument (for logrotate)
 cookbook_file '/etc/init.d/nginx' do
   source 'init'

@@ -41,3 +41,8 @@ suites:
   - name: default
     run_list:
       - recipe[jbox-nginx]
+      - recipe[jbox-nginx::nginx_exporter]
+    attributes:
+      prometheus_exporters:
+        nginx:
+          install: true

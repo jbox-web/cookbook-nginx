@@ -44,3 +44,10 @@ default['nginx']['server']['config']['http']['include']              = %w[
   /etc/nginx/conf.d/*.conf
   /etc/nginx/sites-enabled/*.conf
 ]
+
+# Prometheus nginx_exporter
+default['prometheus_exporters']['nginx']['install']  = false
+default['prometheus_exporters']['nginx']['version']  = '0.10.0'
+default['prometheus_exporters']['nginx']['url']      = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v#{node['prometheus_exporters']['nginx']['version']}/nginx-prometheus-exporter_#{node['prometheus_exporters']['nginx']['version']}_linux_amd64.tar.gz"
+default['prometheus_exporters']['nginx']['checksum'] = 'afaa9cd94360859d743a8cbee27ec5b6fd831611d1460b191d6a2364e6a3a93f'
+default['prometheus_exporters']['nginx']['port']     = 9113
