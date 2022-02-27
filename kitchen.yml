@@ -26,7 +26,7 @@ platforms:
     verifier:
       inputs:
         debian_release: bullseye
-        nginx_version: 1.21.5-1~bullseye
+        nginx_version: 1.21.6-1~bullseye
 
   - name: debian-buster
     driver_config:
@@ -35,7 +35,7 @@ platforms:
     verifier:
       inputs:
         debian_release: buster
-        nginx_version: 1.21.5-1~buster
+        nginx_version: 1.21.6-1~buster
 
 suites:
   - name: default
