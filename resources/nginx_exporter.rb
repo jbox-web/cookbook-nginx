@@ -1,5 +1,6 @@
 resource_name :nginx_exporter
 provides :nginx_exporter
+unified_mode true
 
 property :nginx_retries,           String, default: '5'
 property :nginx_retry_interval,    String, default: '5s'
